@@ -1,0 +1,17 @@
+{
+  "name": "SQE",
+  "description": "Make local questionnaires",
+  "link": "https://github.com/my8oss/SQE",
+  "type": "external",
+
+  "menu": [
+    {
+      "label": "View Source Code",
+      "link": "https://github.com/my8oss/SQE"
+    },
+    {
+      "label": "See Docs",
+      "link": "https://my8oss.github.io/docs/pypippark"
+    }
+  ]
+}
