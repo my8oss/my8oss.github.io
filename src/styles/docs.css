@@ -470,3 +470,61 @@
 .docs-main-site-link:hover {
   color: #fff;
 }
+
+.pagefind-ui__results {
+  max-height: 60vh;
+  overflow-y: auto;
+  margin-top: 1rem;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1a1a1a;
+}
+
+.pagefind-ui__results::-webkit-scrollbar {
+  width: 6px;
+}
+.pagefind-ui__results::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+.pagefind-ui__results::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+
+.pagefind-ui__button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.4rem 1.2rem;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #ccc;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.pagefind-ui__button:hover {
+  background: #3a3a3a;
+  border-color: #8ecae6;
+  color: #fff;
+}
+
+#search-input-container button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 1.2rem;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #ccc;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+#search-input-container button:hover {
+  background: #3a3a3a;
+  border-color: #8ecae6;
+  color: #fff;
+}

@@ -23,12 +23,16 @@ SQE is a Scriptable questionnaire ecosystem that allows users to create and cust
 
 SQE is released as two separate files: `sqe-core` (handles core operations) and `sqe-idle` (the GUI/IDLE layer).
 
-> **Note:** For now, SQE is available only for Linux devices.
+:::note
+For now, SQE is available only for Linux devices.
+:::
 
 1. Install both `sqe-core` and `sqe-idle`, and **verify the SHA-256 checksums**:
    <a href="https://github.com/my8oss/SQE/releases/tag/v.0.0.2-alpha" class="btn" target="_blank" rel="noopener">Download from GitHub</a>
-2. Move `sqe-core` to `/usr/local/bin/`.
-3. Run `sqe-idle`!
+2. Move `sqe-core` to `/usr/local/bin/`
+3. Run `sqe-idle`.
+
+For more detailed installation instructions, see the [full installation guide](/docs/sqe/install/#method-2%3A-build-from-source).
 
 ## Tutorial
 <a href="https://my8oss.github.io/docs/sqe" class="btn btn-outline" target="_blank" rel="noopener">Read the full tutorial</a>
