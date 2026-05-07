@@ -1,6 +1,5 @@
 <header class="site-header" data-pagefind-ignore>
   <nav class="navbar">
-    <!-- Logo – left -->
     <a href="/" class="logo">
       <img src="/images/logo.webp" alt="My8OSS – Home" width="100" height="33">
     </a>
@@ -32,14 +31,14 @@
     // Open overlay
     hamburger?.addEventListener('click', () => {
       overlay?.classList.add('open');
-      hamburger.classList.add('active');          // ← triggers cross animation
+      hamburger.classList.add('active');
       hamburger.setAttribute('aria-expanded', 'true');
     });
 
     // Close overlay via close button
     closeBtn?.addEventListener('click', () => {
       overlay?.classList.remove('open');
-      hamburger.classList.remove('active');       // ← resets to hamburger
+      hamburger.classList.remove('active');
       hamburger.setAttribute('aria-expanded', 'false');
     });
 
