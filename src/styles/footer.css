@@ -1,0 +1,88 @@
+/* ---- FOOTER (dark, polished) ---- */
+.site-footer {
+  background: #0a0a0a;                /* slightly darker than body */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2.5rem 2rem 0;
+  margin-top: 3rem;
+  font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
+}
+
+/* Inner container: flex row (logo left, nav right) */
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Logo & tagline */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-logo img {
+  display: block;
+  height: 150px;
+  width: auto;
+  filter: brightness(0.9);   /* subtle dimming for dark footer */
+}
+
+.footer-tagline {
+  color: #888;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Navigation columns */
+.footer-nav {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.footer-column h3 {
+  color: #ccc;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.8rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-column a {
+  color: #999;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.15s;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+/* Bottom copyright bar */
+.footer-bottom {
+  text-align: center;
+  padding: 1.5rem 0 1rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.8rem;
+  color: #777;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,107 @@
+/* ---- APP BANNER (thin top banner) ---- */
+.app-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 1rem;               /* spacing if there's breadcrumb above */
+}
+
+.app-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;                 /* never shrink logo + title */
+}
+
+.app-banner-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.app-banner-title {
+  font-size: 1.4rem;
+  margin: 0;
+  color: #fff;
+}
+
+.app-banner-desc {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.app-banner-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;                /* allow right side to wrap as well */
+  justify-content: flex-end;
+}
+
+.app-banner-tags {
+  display: flex;
+  flex-wrap: wrap;                /* tags will go to next line instead of shrinking */
+  gap: 0.4rem;
+  row-gap: 0.3rem;               /* vertical spacing when wrapped */
+}
+
+.tag {
+  background: #333;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #eee;
+  white-space: nowrap;            /* keep each tag in one piece */
+}
+
+.app-banner-link {
+  color: #8ecae6;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  white-space: nowrap;            /* prevent link text from breaking */
+}
+
+.app-banner-link:hover {
+  text-decoration: underline;
+}
+
+.app-banner-featured {
+  color: #f4a261;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.app-banner-version {
+  background: #2d5202;
+  color: #ccc;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* License badge – similar to version but with a muted tone */
+.app-banner-license {
+  background: #2e695d;
+  color: #ccc;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Optional: slightly different colour for the docs link to distinguish it */
+.app-banner-link[href^="/docs/"] {
+  /* You can leave it as the default .app-banner-link style,
+     or override if you want */
+}

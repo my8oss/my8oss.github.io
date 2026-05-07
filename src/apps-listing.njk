@@ -1,0 +1,31 @@
+---
+layout: base
+title: Apps Showroom
+permalink: /apps/index.html
+eleventyComputed:
+  breadcrumbs:
+    - { title: "My8OSS", url: "/" }
+    - { title: "Apps" }
+---
+
+{% include "breadcrumb.njk" %}
+
+<main class="apps-page">
+  <h1>{{ title }}</h1>
+
+  <!-- Simple grid, no filters -->
+  <div class="apps-grid">
+    {% for app in collections.app %}
+      <div class="card">
+        {% if app.data.image %}
+          <img src="{{ app.data.image }}" alt="{{ app.data.title }}" class="card-image">
+        {% endif %}
+        <div class="card-body">
+          <h2 class="card-title">{{ app.data.title }}</h2>
+          <p class="card-desc">{{ app.data.description }}</p>
+          <a href="/apps/{{ app.fileSlug }}" class="btn">Open App →</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</main>

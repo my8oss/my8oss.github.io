@@ -1,0 +1,112 @@
+/* VISION – Idea → Build → Apps */
+.vision {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.vision h2 {
+  font-size: 2.2rem;
+  margin-bottom: 60px;
+  color: #ffffff;
+}
+
+.journey {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Horizontal line behind nodes */
+.journey::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background: #2a2a2a;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.node .dot {
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.node::after {
+  content: attr(data-label);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Moving dot animation */
+.journey-line {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.moving-dot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: #4da3ff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: travel 3s ease-in-out infinite;
+  box-shadow: 0 0 12px #4da3ff, 0 0 24px rgba(77, 163, 255, 0.6);
+}
+
+@keyframes travel {
+  0%   { left: 0; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.node:hover .dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 12px #4da3ff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .journey {
+    padding: 0 10px;
+  }
+  .journey::before {
+    left: 30px;
+    right: 30px;
+  }
+  .journey-line {
+    left: 20px;
+    right: 20px;
+  }
+}

@@ -1,0 +1,60 @@
+{%- set link = app.data.link -%}
+{%- set isAnchor = link and link | startsWith('#') -%}
+{%- set isExternal = link and link | startsWith('http') -%}
+{%- if isAnchor -%}
+  {%- set anchorLabel = link | slice(1) | capitalize -%}
+{%- endif -%}
+{%- set docsUrl = "/docs/" + app.fileSlug -%}
+
+<div class="app-banner">
+  <!-- Left: logo + title + description -->
+  <div class="app-banner-left">
+    {% if app.data.image %}
+      <img
+        src="{{ app.data.image }}"
+        alt="{{ app.data.title }}"
+        class="app-banner-logo"
+        width="48"
+        height="48"
+      >
+    {% endif %}
+    <div class="app-banner-text">
+      <h1 class="app-banner-title">{{ app.data.title }}</h1>
+      <p class="app-banner-desc">{{ app.data.description }}</p>
+    </div>
+  </div>
+
+  <!-- Right: tags, badges, links -->
+  <div class="app-banner-right">
+    {% if app.data.tags and app.data.tags.length > 0 %}
+      <div class="app-banner-tags">
+        {% for tag in app.data.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      </div>
+    {% endif %}
+
+    {% if app.data.version %}
+      <span class="app-banner-version">v{{ app.data.version }}</span>
+    {% endif %}
+
+    {% if app.data.license %}
+      <span class="app-banner-license">{{ app.data.license }}</span>
+    {% endif %}
+
+    <!-- Docs link -->
+    <a href="{{ docsUrl }}" class="app-banner-link">Docs</a>
+
+    {% if link %}
+      <a
+        href="{{ link }}"
+        class="app-banner-link"
+        {% if isExternal %}target="_blank" rel="noopener noreferrer"{% endif %}
+      >
+        {% if isAnchor %}{{ anchorLabel }} ↓{% else %}Visit App ↗{% endif %}
+      </a>
+    {% endif %}
+
+    {% if app.data.featured %}
+      <span class="app-banner-featured">★ Featured</span>
+    {% endif %}
+  </div>
+</div>

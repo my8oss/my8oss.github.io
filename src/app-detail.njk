@@ -1,0 +1,30 @@
+---
+pagination:
+  data: collections.app
+  size: 1
+  alias: app
+  addAllPagesToCollections: true
+permalink: "/apps/{{ app.fileSlug }}/index.html"
+layout: base
+eleventyComputed:
+  title: "{{ app.data.title }}"
+---
+{# Build the breadcrumbs array #}
+{% set breadcrumbs = [
+  { title: "My8OSS", url: "/" },
+  { title: "Apps", url: "/apps/" },
+  { title: app.data.title }
+] %}
+
+{% include "breadcrumb.njk" %}
+{% include "appBanner.njk" %}
+
+<!-- Main content container – centered, max-width -->
+<div class="layout">
+  <div class="content">
+    <article>
+      {{ app.templateContent | safe }}
+    </article>
+    <a href="/">← Back to Home</a>
+  </div>
+</div>

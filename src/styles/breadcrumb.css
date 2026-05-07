@@ -1,0 +1,47 @@
+/* ---- BREADCRUMB ---- */
+.breadcrumb {
+  padding: 0.4rem 2rem;
+  background: transparent;
+  font-size: 0.85rem;
+  color: #666;
+  border-bottom: 1px solid #eee;
+}
+
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.2rem;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb a {
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+  color: #111;
+}
+
+.breadcrumb .separator {
+  color: #aaa;
+  font-size: 0.8rem;
+  margin: 0 0.3rem;
+  user-select: none;
+  /* Make it look like a thin triangle arrow */
+  font-family: system-ui, sans-serif;
+}
+
+.breadcrumb .current {
+  color: #eee;
+  font-weight: 600;
+}

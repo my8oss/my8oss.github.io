@@ -1,0 +1,118 @@
+---
+layout: base
+title: "About My8OSS"
+eleventyComputed:
+  breadcrumbs:
+    - { title: "My8OSS", url: "/" }
+    - { title: "About" }
+---
+
+{% include "breadcrumb.njk" %}
+
+<main class="about-page">
+  <h1>About My8OSS</h1>
+
+  <section class="about-intro">
+    <p>
+      My8OSS is an open software ecosystem focused on turning ideas into usable, production-ready systems.
+    </p>
+    <p>
+      We don’t stay at the idea stage. We design, build, and ship software that is meant to be used, extended, and owned.
+    </p>
+    <p>
+      “Once a Myth, Now My8OSS.” represents that transition from concept to execution.
+    </p>
+  </section>
+
+  <section class="about-status">
+    <h2>What we are</h2>
+    <p>
+      My8OSS is actively in development. It is a growing collection of tools, systems, and components that are being built in parallel toward a unified ecosystem.
+    </p>
+    <p>
+      This is an engineering effort that is continuously shipping new parts.
+    </p>
+  </section>
+
+  <section class="about-principles">
+    <h2>Core principles</h2>
+
+    <p><strong>Open by default.</strong> Products are inspectable and modifiable.</p>
+
+    <p><strong>Outcome alongside theory.</strong> We bridge shipping working systems with conceptual exploration.</p>
+
+    <p><strong>Modular design.</strong> Each tool must function independently while contributing to a larger ecosystem.</p>
+
+    <p><strong>Clarity in engineering.</strong> Software should be understandable, maintainable, and predictable.</p>
+  </section>
+
+  <section class="about-build">
+    <h2>What we build</h2>
+
+    <p>
+      My8OSS spans multiple layers of software:
+    </p>
+
+    <p>
+      • Lightweight applications and utilities<br/>
+      • Developer tools and infrastructure components<br/>
+      • System-level integrations and experiments<br/>
+      • And more...
+    </p>
+
+    <p>
+      Each project is developed independently, but designed to integrate into a larger structure over time.
+    </p>
+  </section>
+
+  <section class="about-contact">
+    <h2>Get involved</h2>
+    <p>
+      Everything is developed openly on
+      <a href="https://github.com/my8oss" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+    <p>
+      Contributions, ideas, and experimentation are welcome as the ecosystem evolves.
+    </p>
+    <p>
+      Explore the <a href="/docs">documentation</a> or check out the
+      <a href="/apps">apps</a> currently in development.
+    </p>
+  </section>
+</main>
+
+<style>
+  .about-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    color: #ccc;
+    line-height: 1.7;
+  }
+
+  .about-page h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .about-page h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .about-page p {
+    margin-bottom: 1.2rem;
+  }
+
+  .about-page a {
+    color: #8ecae6;
+    text-decoration: underline;
+  }
+
+  .about-page a:hover {
+    color: #fff;
+  }
+</style>

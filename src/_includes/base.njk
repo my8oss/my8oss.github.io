@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if title %}{{ title }}{% else %}My8OSS{% endif %}</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  
+  <!-- Global styles -->
+  <link rel="stylesheet" href="/styles/global.css" />
+  <link rel="stylesheet" href="/styles/docs.css" />
+  
+  <!-- Component & layout styles -->
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+  <link rel="stylesheet" href="/styles/breadcrumb.css" />
+  <link rel="stylesheet" href="/styles/appbanner.css" />
+
+  <!-- Page section styles -->
+  <link rel="stylesheet" href="/styles/hero.css" />
+  <link rel="stylesheet" href="/styles/vision.css" />
+
+  <!-- App grid & details -->
+  <link rel="stylesheet" href="/styles/apps-grid.css" />
+  <link rel="stylesheet" href="/styles/appspage.css" />
+
+  {# Optional: additional page-specific styles can be added by each template #}
+</head>
+<body>
+  {% include "header.njk" %}
+  <main>
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+</body>
+</html>
