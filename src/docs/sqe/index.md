@@ -1,10 +1,6 @@
 ---
 title: "SQE Documentation"
-eleventyNavigation:
-  key: SQE
-  parent: Docs
-  order: 1
-layout: docs
+description: "Complete SQE documentation; installation, core CLI, graphical IDLE, and language syntax for creating questionnaires."
 ---
 
 # SQE: Scriptable Questionnaire Ecosystem
@@ -32,9 +28,4 @@ SQE is a Scriptable questionnaire ecosystem that allows users to create and cust
 
 | Document | Description |
 |----------|-------------|
-| [Example](./syntax/example) | Full survey creation example. |
-| [Print](./syntax/print) | Output functions: saving, printing, exporting. |
-| [Choice](./syntax/choice) | Boolean & multiple‑choice questions. |
-| [Page](./syntax/page) | Multi‑page navigation and layout. |
-| [Function](./syntax/function) | Custom functions & API reference. |
-| [Title](./syntax/title) | Survey header and meta fields. |
+| [Syntax reference](./syntax/index.md) | Reference to the syntax of SQE. |

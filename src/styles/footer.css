@@ -1,13 +1,12 @@
 /* ---- FOOTER (dark, polished) ---- */
 .site-footer {
-  background: #0a0a0a;                /* slightly darker than body */
+  background: #0a0a0a;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 2.5rem 2rem 0;
   margin-top: 3rem;
   font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif;
 }
 
-/* Inner container: flex row (logo left, nav right) */
 .footer-inner {
   display: flex;
   justify-content: space-between;
@@ -18,7 +17,6 @@
   flex-wrap: wrap;
 }
 
-/* Logo & tagline */
 .footer-brand {
   display: flex;
   flex-direction: column;
@@ -29,7 +27,7 @@
   display: block;
   height: 150px;
   width: auto;
-  filter: brightness(0.9);   /* subtle dimming for dark footer */
+  filter: brightness(0.9);
 }
 
 .footer-tagline {
@@ -38,7 +36,6 @@
   margin: 0;
 }
 
-/* Navigation columns */
 .footer-nav {
   display: flex;
   gap: 3rem;
@@ -74,7 +71,6 @@
   color: #fff;
 }
 
-/* Bottom copyright bar */
 .footer-bottom {
   text-align: center;
   padding: 1.5rem 0 1rem;

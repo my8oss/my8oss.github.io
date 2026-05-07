@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if title %}{{ title }}{% else %}Documentation{% endif %} – My8OSS</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <meta name="description" content="{% if description %}{{ description }}{% else %}My8OSS Documentation{% endif %}">
+  <link rel="stylesheet" href="/styles/global.css" />
+  <link rel="stylesheet" href="/styles/docs.css" />
+</head>
+<body class="docs-layout">
+  <header class="docs-header">
+    <button class="docs-hamburger" id="hamburger-btn" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <a href="/docs/" class="docs-logo">
+      <img src="/images/logo.webp" alt="My8OSS Docs" width="32" height="32">
+      <span class="docs-logo-text">Docs</span>
+    </a>
+    <a href="/" class="docs-main-site-link">← Main Site</a>
+    <button class="docs-search-toggle" id="search-toggle-btn" aria-label="Search documentation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+  </header>
+
+  <div class="docs-search-overlay" id="search-overlay">
+    <div class="docs-search-overlay-inner">
+      <button class="docs-search-close" id="search-close-btn">&times;</button>
+      <div id="search-input-container"></div>
+    </div>
+  </div>
+
+  <div class="docs-wrapper">
+    <aside class="docs-sidebar" id="docs-sidebar">
+      <nav class="docs-nav">
+        {% include "docs-sidebar.njk" %}
+      </nav>
+    </aside>
+
+    <main class="docs-content" data-pagefind-body>
+      {% if breadcrumbs %}
+        {% include "breadcrumb.njk" %}
+      {% endif %}
+
+      <div class="docs-toc-wrapper" id="docs-toc-wrapper">
+        <details class="toc-details" open>
+          <summary class="docs-toc-title">On this page</summary>
+          <nav id="toc-list"></nav>
+        </details>
+      </div>
+
+      <article>
+        {{ content | safe }}
+      </article>
+    </main>
+  </div>
+
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    (function() {
+      const hamburger = document.getElementById('hamburger-btn');
+      const sidebar = document.getElementById('docs-sidebar');
+      hamburger?.addEventListener('click', () => {
+        sidebar?.classList.toggle('open');
+        hamburger.classList.toggle('active');
+      });
+
+      const searchToggle = document.getElementById('search-toggle-btn');
+      const searchOverlay = document.getElementById('search-overlay');
+      const searchClose = document.getElementById('search-close-btn');
+      let pagefindInitialized = false;
+      function initSearch() {
+        if (pagefindInitialized) return;
+        const container = document.getElementById('search-input-container');
+        if (container && window.PagefindUI) {
+          new PagefindUI({
+            element: '#search-input-container',
+            showImages: false,
+            basePath: '/_pagefind/',
+            translations: { placeholder: 'Search docs…' }
+          });
+          pagefindInitialized = true;
+        }
+      }
+      searchToggle?.addEventListener('click', () => {
+        searchOverlay?.classList.add('open');
+        initSearch();
+      });
+      searchClose?.addEventListener('click', () => {
+        searchOverlay?.classList.remove('open');
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchOverlay?.classList.contains('open')) {
+          searchOverlay.classList.remove('open');
+        }
+      });
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && sidebar?.classList.contains('open')) {
+          const inside = sidebar.contains(e.target) || hamburger.contains(e.target);
+          if (!inside) {
+            sidebar.classList.remove('open');
+            hamburger.classList.remove('active');
+          }
+        }
+      });
+
+      document.querySelectorAll('.docs-content pre').forEach(pre => {
+        const code = pre.querySelector('code');
+        if (!code) return;
+        const btn = document.createElement('button');
+        btn.className = 'code-copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', () => {
+          navigator.clipboard.writeText(code.textContent).then(() => {
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 1500);
+          });
+        });
+        pre.appendChild(btn);
+      });
+
+      const tocList = document.getElementById('toc-list');
+      const article = document.querySelector('.docs-content article');
+      if (tocList && article) {
+        const headings = article.querySelectorAll('h1, h2, h3');
+        if (headings.length > 0) {
+          const ul = document.createElement('ul');
+          ul.className = 'toc-list';
+          headings.forEach((heading, index) => {
+            if (!heading.id) heading.id = 'section-' + index;
+            const level = parseInt(heading.tagName.charAt(1));
+            const li = document.createElement('li');
+            li.className = `toc-item toc-level-${level}`;
+            const a = document.createElement('a');
+            a.href = `#${heading.id}`;
+            a.textContent = heading.textContent;
+            a.addEventListener('click', (e) => {
+              e.preventDefault();
+              heading.scrollIntoView({ behavior: 'smooth' });
+              history.pushState(null, null, `#${heading.id}`);
+            });
+            li.appendChild(a);
+            ul.appendChild(li);
+          });
+          tocList.appendChild(ul);
+
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              const id = entry.target.id;
+              const link = tocList.querySelector(`a[href="#${id}"]`);
+              if (link) {
+                if (entry.isIntersecting) {
+                  tocList.querySelectorAll('a').forEach(a => a.classList.remove('toc-active'));
+                  link.classList.add('toc-active');
+                }
+              }
+            });
+          }, { rootMargin: '-80px 0px -70% 0px', threshold: 0 });
+          headings.forEach(h => observer.observe(h));
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

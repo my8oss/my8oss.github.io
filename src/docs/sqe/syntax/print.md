@@ -1,9 +1,12 @@
 ---
-title: print with "insert"
-description: print function in SQE
+title: Printing Output with insert
+description: Use the insert statement to print single‑line and multi‑line text in SQE. Includes syntax and visual examples.
 ---
 
-To print, ```insert``` method is used:
+# Printing Output with insert
+
+
+The `insert` statement outputs text in your SQE survey or questionnaire.
 
 ```
 insert <TEXT>
@@ -13,7 +16,7 @@ insert <TEXT>
 insert Hello World!
 ```
 
-![Single Line Insert](/src/images/sqe/single-line-insert.webp)
+![Single Line Insert](/images/sqe/single-line-insert.webp)
 
 To print multiple line text, use curly brackets:
 ```
@@ -29,4 +32,4 @@ line 2
 }
 ```
 
-![Multiple Line Insert](/src/images/sqe/multiple-line-insert.webp)
+![Multiple Line Insert](/images/sqe/multiple-line-insert.webp)

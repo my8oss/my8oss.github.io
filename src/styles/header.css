@@ -1,4 +1,3 @@
-/* ---- HEADER BAR (thin, sticky) ---- */
 .site-header {
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
@@ -12,7 +11,6 @@
   align-items: center;
 }
 
-/* ---- NAVBAR – logo left, hamburger right ---- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -21,7 +19,6 @@
   height: 100%;
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -32,7 +29,6 @@
   width: auto;
 }
 
-/* Hamburger (always visible, no nav-links needed) */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -43,14 +39,26 @@
   padding: 0.4rem;
   z-index: 150;
 }
+
 .hamburger-line {
   width: 20px;
   height: 2px;
   background: white;
   border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  transform-origin: center;
 }
 
-/* ---- FULL‑SCREEN OVERLAY ---- */
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -69,13 +77,11 @@
   z-index: 200;
 }
 
-/* Show overlay */
 .menu-overlay.open {
   opacity: 1;
   visibility: visible;
 }
 
-/* Close button */
 .menu-close {
   position: absolute;
   top: 1rem;
@@ -89,7 +95,6 @@
   z-index: 201;
 }
 
-/* Menu links */
 .menu-links {
   list-style: none;
   padding: 0;

@@ -1,7 +1,9 @@
 ---
-title: functions and apis
-description: SQE functions and apis
+title: SQE Functions, Block Types, and Methods
+description: Learn how SQE block types (html, css, js) work, the flow overview, and the window.SQE API for getting and setting answers.
 ---
+
+# SQE Functions, Block Types, and Methods
 
 ## Block Types
 
@@ -27,9 +29,7 @@ description: SQE functions and apis
 
 ---
 
-## Execution Model
-
-**Flow overview:**
+## Flow overview
 
 ```
 User input

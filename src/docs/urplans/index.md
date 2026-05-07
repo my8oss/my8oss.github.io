@@ -1,6 +1,6 @@
 ---
-title: URPlans overview
-description: a lightweight task‐planning core
+title: URPlans Documentation
+description: URPlans is a Java CLI task planner using the Eisenhower Matrix, with persistence via Spring Data JPA and Hibernate. Insert, list, search, and delete tasks.
 ---
 
 

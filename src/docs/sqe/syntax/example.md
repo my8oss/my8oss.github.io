@@ -1,9 +1,12 @@
 ---
-title: example
-description: an example
+title: SQE Example
+description: A full SQE script example demonstrating imports, multiple pages, a boolean question and a multiple‑choice question.
 ---
 
-Here's an example:
+# SQE Example
+
+This example script imports external CSS, JS, and HTML files, then creates three pages: a welcome page with a boolean question, a page with a multiple‑choice question, and a final thank‑you page.
+
 ```
 import css "styles.css"
 import js "base.js"

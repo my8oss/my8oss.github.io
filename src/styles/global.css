@@ -28,4 +28,20 @@ img {
 
 a {
   text-decoration: none;
+  color: #8ecae6;
+  transition: color 0.2s ease;
+}
+
+a:visited {
+  color: #6baed6;
+}
+
+a:hover,
+a:focus-visible {
+  color: #b8e2f2;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #ffffff;
 }

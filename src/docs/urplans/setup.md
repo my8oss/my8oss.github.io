@@ -1,8 +1,9 @@
 ---
-title: Setup
-description: How to setup URPlans.
+title: Setting Up URPlans
+description: Step‑by‑step instructions to set up URPlans from source, install dependencies, clone the repo, and build with Maven.
 ---
 
+# Setting Up URPlans
 
 Follow these steps to setup ```urplans```:
 

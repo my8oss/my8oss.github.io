@@ -1,9 +1,10 @@
 ---
-title: choice
-description: Choice function includes Boolean questions, multiple questions, yes/no questions
+title: Yes/No & Multiple Choice in SQE
+description: Learn the choice construct in SQE for yes/no and multiple-choice questions with syntax and an example.
 ---
 
-SQE covers both "Boolean (yes/no) questions" and "multiple questions" under one umbrella, "choice."
+# Yes/No & Multiple Choice in SQE
+The `choice` construct handles yes/no and multiple‑choice questions in SQE.
 
 ```txt
 choice <VARIABLE NAME> {
@@ -22,4 +23,4 @@ Button three >> 3
 Button four >> 4
 }
 ```
-![choice](/images/sqe/choice.webp)
+![Example output of the SQE choice construct, showing four labelled buttons](/images/sqe/choice.webp)

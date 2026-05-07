@@ -1,4 +1,4 @@
-/* ---- APP BANNER (thin top banner) ---- */
+/* ---- APP BANNER ---- */
 .app-banner {
   display: flex;
   justify-content: space-between;
@@ -7,14 +7,14 @@
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 1rem;               /* spacing if there's breadcrumb above */
+  margin-top: 1rem;
 }
 
 .app-banner-left {
   display: flex;
   align-items: center;
   gap: 1rem;
-  flex-shrink: 0;                 /* never shrink logo + title */
+  flex-shrink: 0;
 }
 
 .app-banner-logo {
@@ -39,16 +39,24 @@
 .app-banner-right {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;                /* allow right side to wrap as well */
+  gap: 0.8rem;
+  flex-wrap: nowrap;
   justify-content: flex-end;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.app-banner-right::-webkit-scrollbar {
+  display: none;
 }
 
 .app-banner-tags {
   display: flex;
-  flex-wrap: wrap;                /* tags will go to next line instead of shrinking */
+  flex-wrap: nowrap;
   gap: 0.4rem;
-  row-gap: 0.3rem;               /* vertical spacing when wrapped */
 }
 
 .tag {
@@ -57,7 +65,7 @@
   border-radius: 4px;
   font-size: 0.75rem;
   color: #eee;
-  white-space: nowrap;            /* keep each tag in one piece */
+  white-space: nowrap;
 }
 
 .app-banner-link {
@@ -65,7 +73,7 @@
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
-  white-space: nowrap;            /* prevent link text from breaking */
+  white-space: nowrap;
 }
 
 .app-banner-link:hover {
@@ -89,7 +97,6 @@
   white-space: nowrap;
 }
 
-/* License badge – similar to version but with a muted tone */
 .app-banner-license {
   background: #2e695d;
   color: #ccc;
@@ -100,8 +107,110 @@
   white-space: nowrap;
 }
 
-/* Optional: slightly different colour for the docs link to distinguish it */
-.app-banner-link[href^="/docs/"] {
-  /* You can leave it as the default .app-banner-link style,
-     or override if you want */
+@media (max-width: 900px) {
+  .app-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .app-banner-right {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .app-banner-tags {
+    flex-wrap: wrap;
+    row-gap: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .app-banner-title {
+    font-size: 1.2rem;
+  }
+
+  .app-banner-desc {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-banner {
+    padding: 0.8rem 1rem;
+  }
+
+  .app-banner-title {
+    font-size: 1.1rem;
+  }
+}
+
+.app-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: #2a2a2a;
+  color: #ccc;
+  border: 1px solid #444;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.app-banner-btn:hover {
+  background: #3a3a3a;
+  border-color: #8ecae6;
+  color: #fff;
+}
+
+.app-banner-btn-primary {
+  background: #1e3b4f;
+  border-color: #2f5f7a;
+  color: #e0f0ff;
+}
+
+.app-banner-btn-primary:hover {
+  background: #2c526b;
+  border-color: #8ecae6;
+  color: #fff;
+}
+
+.app-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  background: #2a2a2a;
+  color: #ccc;
+  border: 1px solid #444;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.app-banner-btn:hover {
+  background: #3a3a3a;
+  border-color: #8ecae6;
+  color: #fff;
+}
+
+.app-banner-btn-primary {
+  background: #1e3b4f;
+  border-color: #2f5f7a;
+  color: #e0f0ff;
+}
+
+.app-banner-btn-primary:hover {
+  background: #2c526b;
+  border-color: #8ecae6;
+  color: #fff;
 }

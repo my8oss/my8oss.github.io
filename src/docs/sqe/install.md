@@ -1,14 +1,9 @@
 ---
-title: Install
-description: How to install the Scriptable Questionnaire Ecosystem (SQE).
-eleventyNavigation:
-  key: install
-  parent: SQE
-  order: 0
-layout: docs
+title: Installing SQE (Core & IDLE) on Linux
+description: Step-by-step guide to install SQE on Linux; download pre-built binaries or build from source, with tips for Rust setup.
 ---
 
-# Installation
+# Installing SQE (Core & IDLE) on Linux
 
 SQE consists of two separate applications:
 
@@ -26,7 +21,7 @@ You can install SQE in one of two ways:
 ## Method 1: Download pre-built binaries
 
 1. Download both `sqe-core` and `sqe-idle` from the [latest release](https://github.com/my8oss/SQE/releases/tag/v.0.0.2-alpha).  
-   :::tip[Security]
+   :::tip
    Always verify the SHA-256 checksums after downloading.
    :::
 

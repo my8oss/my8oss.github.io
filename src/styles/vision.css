@@ -20,7 +20,6 @@
   padding: 0 20px;
 }
 
-/* Horizontal line behind nodes */
 .journey::before {
   content: '';
   position: absolute;
@@ -59,7 +58,6 @@
   letter-spacing: 0.5px;
 }
 
-/* Moving dot animation */
 .journey-line {
   position: absolute;
   top: 50%;
@@ -96,7 +94,6 @@
   box-shadow: 0 0 12px #4da3ff;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .journey {
     padding: 0 10px;

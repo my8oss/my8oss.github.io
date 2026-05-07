@@ -1,9 +1,9 @@
 ---
-title: pages
-description: generating/manages pages
+title: Pages in SQE
+description: Learn how to divide a SQE survey into multiple pages using the @p flag, with a simple example and screenshots.
 ---
 
-
+# Pages in SQE
 
 Each Survey/Questionnaire can be devided into multiple pages, using ```@p``` flag:
 

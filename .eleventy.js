@@ -1,14 +1,15 @@
-const { execSync } = require('child_process');
-const markdownIt = require('markdown-it');
+const buildDocsTree = require('./src/_filters/docsTree.js');
+const markdownItContainer = require('markdown-it-container');
 const markdownItAnchor = require('markdown-it-anchor');
-const markdownItAttrs = require('markdown-it-attrs');
+const licenseLink = require('./src/_filters/licenseLink.js');
 
 module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
 
-  
-  // ── Custom filters (keep what you need) ────────
+  // ── Custom filters ────────────────────────────
+  eleventyConfig.addFilter("licenseLink", licenseLink);
+
   eleventyConfig.addFilter("startsWith", function(str, prefix) {
     if (!str) return false;
     return str.startsWith(prefix);
@@ -23,19 +24,38 @@ module.exports = function(eleventyConfig) {
     return new Date().getFullYear();
   });
 
-  // ── Markdown enhancements (optional) ────────────────
+  // ── Docs sidebar tree ─────────────────────────
+  eleventyConfig.addFilter("buildDocsTree", buildDocsTree);
+
+  // ── Markdown enhancements ──────────────────────
   eleventyConfig.amendLibrary('md', (mdLib) => {
+    // Auto-generate id attributes on headings
     mdLib.use(markdownItAnchor);
-    mdLib.use(markdownItAttrs);
-    // No callout containers, no Pagefind code
+
+    // Callout containers (:::note, :::tip, etc.)
+    const types = ['note', 'tip', 'caution', 'danger'];
+    types.forEach(type => {
+      mdLib.use(markdownItContainer, type, {
+        render(tokens, idx) {
+          const t = tokens[idx];
+          if (t.nesting === 1) {
+            const title = t.info.trim().split(' ').slice(1).join(' ') ||
+                          type.charAt(0).toUpperCase() + type.slice(1);
+            return `<div class="admonition ${type}"><strong>${title}</strong><p>`;
+          } else {
+            return `</p></div>`;
+          }
+        }
+      });
+    });
   });
 
-  // ── Static assets ───────────────────────────────────
+  // ── Static assets ──────────────────────────────
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/styles");
 
-  // ── Directory config ────────────────────────────────
+  // ── Directory config ──────────────────────────
   return {
     dir: {
       input: "src",

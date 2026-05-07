@@ -7,7 +7,6 @@
 {%- set docsUrl = "/docs/" + app.fileSlug -%}
 
 <div class="app-banner">
-  <!-- Left: logo + title + description -->
   <div class="app-banner-left">
     {% if app.data.image %}
       <img
@@ -24,7 +23,6 @@
     </div>
   </div>
 
-  <!-- Right: tags, badges, links -->
   <div class="app-banner-right">
     {% if app.data.tags and app.data.tags.length > 0 %}
       <div class="app-banner-tags">
@@ -33,23 +31,27 @@
     {% endif %}
 
     {% if app.data.version %}
-      <span class="app-banner-version">v{{ app.data.version }}</span>
+      <span class="app-banner-version">Version: v{{ app.data.version }}</span>
     {% endif %}
 
     {% if app.data.license %}
-      <span class="app-banner-license">{{ app.data.license }}</span>
+      {% set lic = app.data.license | licenseLink %}
+      {% if lic.url %}
+        <a href="{{ lic.url }}" class="app-banner-license" target="_blank" rel="noopener noreferrer" title="View license details">License: {{ lic.short }}</a>
+      {% else %}
+        <span class="app-banner-license">License: {{ lic.short }}</span>
+      {% endif %}
     {% endif %}
 
-    <!-- Docs link -->
-    <a href="{{ docsUrl }}" class="app-banner-link">Docs</a>
+    <a href="{{ docsUrl }}" class="app-banner-btn">Docs</a>
 
     {% if link %}
       <a
         href="{{ link }}"
-        class="app-banner-link"
+        class="app-banner-btn app-banner-btn-primary"
         {% if isExternal %}target="_blank" rel="noopener noreferrer"{% endif %}
       >
-        {% if isAnchor %}{{ anchorLabel }} ↓{% else %}Visit App ↗{% endif %}
+        {% if isAnchor %}Install ↓{% else %}Visit App ↗{% endif %}
       </a>
     {% endif %}
 

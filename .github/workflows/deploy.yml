@@ -2,8 +2,8 @@ name: Deploy 11ty site to GitHub Pages
 
 on:
   push:
-    branches: [main]           # triggers on every push to main
-  workflow_dispatch:            # allow manual run from Actions tab
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -32,6 +32,9 @@ jobs:
 
       - name: Build Eleventy site
         run: npx @11ty/eleventy
+
+      - name: Index with Pagefind
+        run: npx pagefind --source _site --glob "**/*.html"
 
       - name: Ensure .nojekyll exists
         run: touch _site/.nojekyll

@@ -1,9 +1,11 @@
 ---
-title: Guide
-description: Command-line reference for the SQE Core.
+title: SQE Core Command-Line Guid
+description: Complete command-line reference for SQE Core, the tool that compiles .sqe files to HTML.
 ---
 
-SQE Core is the core tool that converts .sqe files to html files.
+# SQE Core Command-Line Guid
+
+SQE Core compiles `.sqe` files to HTML. Below is the command‑line syntax and available options.
 
 Usage:
 ```bash

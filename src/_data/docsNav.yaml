@@ -1,0 +1,41 @@
+- title: Getting Started
+  items:
+    - title: Introduction
+      url: /docs/
+    - title: SQE
+      url: /docs/sqe/
+    - title: Installation
+      url: /docs/sqe/install
+    - title: Urplans
+      url: /docs/urplans/
+
+- title: SQE Internals
+  items:
+    - title: Core Engine
+      url: /docs/sqe/core/
+    - title: IDLE GUI
+      url: /docs/sqe/idle/
+
+- title: Syntax Reference
+  items:
+    - title: Choice
+      url: /docs/sqe/syntax/choice
+    - title: Example
+      url: /docs/sqe/syntax/example
+    - title: Function
+      url: /docs/sqe/syntax/function
+    - title: Page
+      url: /docs/sqe/syntax/page
+    - title: Print
+      url: /docs/sqe/syntax/print
+    - title: Title
+      url: /docs/sqe/syntax/title
+
+- title: Urplans Documentation
+  items:
+    - title: Architecture
+      url: /docs/urplans/architecture
+    - title: Setup
+      url: /docs/urplans/setup
+    - title: Usage
+      url: /docs/urplans/usage

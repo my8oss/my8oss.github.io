@@ -1,6 +1,6 @@
 ---
-title: Usage
-description: How to use URPlans.
+title: URPlans CLI Usage
+description: Command reference for the URPlans CLI; insert, list, search, and delete tasks with examples, date filters, and Eisenhower Matrix priorities.
 ---
 
 # How to Use URPlans CLI

@@ -1,0 +1,27 @@
+{% macro renderTree(nodes) %}
+  <ul class="docs-tree">
+    {% for node in nodes %}
+      {% if node.type == 'directory' %}
+        <li class="dir-node">
+          {% if node.index %}
+            <a href="{{ node.index.url }}" class="dir-link">{{ node.index.data.title or node.name | replace('-', ' ') | capitalize }}</a>
+          {% else %}
+            <span class="dir-name">{{ node.name | replace('-', ' ') | capitalize }}</span>
+          {% endif %}
+          {% if node.children and node.children.length %}
+            {{ renderTree(node.children) }}
+          {% endif %}
+        </li>
+      {% elif node.type == 'leaf' %}
+        <li class="leaf-node{% if node.page.url == page.url %} active{% endif %}">
+          <a href="{{ node.page.url }}">{{ node.page.data.title or node.page.fileSlug }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+<nav class="docs-nav">
+  {% set tree = collections.docs | buildDocsTree %}
+  {{ renderTree(tree) }}
+</nav>
